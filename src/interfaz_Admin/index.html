@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sistema de Agendamiento Multiproveedor</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="nav-brand">
+      <i class="fa-solid fa-calendar-check logo-icon"></i>
+      <span>AgendaApp <strong>Pro</strong></span>
+    </div>
+    <div class="user-badge">
+      <i class="fa-solid fa-user-gear"></i>
+      <span>Administrador</span>
+    </div>
+  </nav>
+
+  <main class="dashboard-container">
+    <section class="kpi-grid">
+      <div class="kpi-card">
+        <div class="kpi-icon blue"><i class="fa-solid fa-user-doctor"></i></div>
+        <div>
+          <h3>2</h3>
+          <p>Proveedores</p>
+        </div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-icon green"><i class="fa-solid fa-calendar-day"></i></div>
+        <div>
+          <h3 id="kpi-total">0</h3>
+          <p>Solicitudes Recibidas</p>
+        </div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-icon orange"><i class="fa-solid fa-shield-halved"></i></div>
+        <div>
+          <h3>Registro </h3>
+          <p> Servicio</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="content-grid">
+      <section class="card form-card">
+        <div class="card-header">
+          <h2><i class="fa-solid fa-plus-circle"></i> Solicitar Cita</h2>
+        </div>
+
+        <div id="alertBox" class="alert-banner hidden">
+          <i id="alertIcon" class="fa-solid"></i>
+          <span id="alertMessage"></span>
+        </div>
+
+        <form id="appointmentForm">
+          <h3 class="step-title"><i class="fa-solid fa-id-card"></i> Datos del Paciente</h3>
+          
+          <div class="form-group">
+            <label for="clientName"><i class="fa-solid fa-user"></i> Nombre Completo</label>
+            <input type="text" id="clientName" placeholder="Ej. Cris Riascos" required>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="clientId"><i class="fa-solid fa-address-card"></i> Cédula </label>
+              <input type="text" id="clientId" placeholder="106171" required>
+            </div>
+            <div class="form-group">
+              <label for="clientPhone"><i class="fa-solid fa-phone"></i>  Celular</label>
+              <input type="tel" id="clientPhone" placeholder="31707571" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="clientEmail"><i class="fa-solid fa-envelope"></i> Correo Electrónico</label>
+            <input type="email" id="clientEmail" placeholder="cellshop@ejemplo.com" required>
+          </div>
+
+          <div class="form-group">
+            <label for="serviceType"><i class="fa-solid fa-notes-medical"></i> Servicio </label>
+            <select id="serviceType" required>
+              <option value="">Selecciona lo que necesitas...</option>
+              <option value="Cardiología">Consulta de Cardiología</option>
+              <option value="Dentista">Atención Odontológica / Dentista</option>
+              <option value="Consultoría">Consultoría General</option>
+            </select>
+          </div>
+
+          <button type="submit" class="btn-primary" id="btnSubmit">
+            <i class="fa-solid fa-paper-plane"></i> Registrar Solicitud
+          </button>
+        </form>
+      </section>
+
+      <!-- solicutud -->
+      <section class="card table-card">
+        <div class="card-header">
+          <h2><i class="fa-solid fa-list-check"></i> Solicitudes Registradas</h2>
+          <button class="btn-secondary" id="btnRefresh"><i class="fa-solid fa-arrows-rotate"></i> Actualizar</button>
+        </div>
+
+        <div class="table-wrapper">
+          <table class="appointments-table">
+            <thead>
+              <tr>
+                <th>Paciente</th>
+                <th>Cédula</th>
+                <th>Teléfono</th>
+                <th>Servicio</th>
+              </tr>
+            </thead>
+            <tbody id="appointmentsList">
+              <tr>
+                <td colspan="4" class="empty-state">No hay solicitudes registradas.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
