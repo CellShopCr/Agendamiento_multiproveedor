@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reserva tu Cita - AgendaApp Pro</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Navegación del Cliente -->
+  <nav class="navbar">
+    <div class="nav-brand">
+      <i class="fa-solid fa-calendar-check logo-icon"></i>
+      <span>AgendaApp <strong>Pro</strong></span>
+    </div>
+    <div class="user-badge">
+      <i class="fa-solid fa-user"></i>
+      <span>Portal del Cliente</span>
+    </div>
+  </nav>
+
+  <main class="dashboard-container">
+    
+    <!-- Hero / Encabezado de Bienvenida -->
+    <section class="welcome-banner" style="margin-bottom: 2rem; text-align: center; background: #fff; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
+      <h1 style="color: #2c3e50; margin-bottom: 0.5rem; font-size: 1.8rem;">
+        <i class="fa-solid fa-calendar-plus" style="color: #3498db;"></i> Agenda tu Cita en Línea
+      </h1>
+      <p style="color: #7f8c8d; font-size: 1rem;">
+        Completa tus datos a continuación y selecciona el servicio que requieres. Te confirmaremos por correo electrónico.
+      </p>
+    </section>
+
+    <div class="content-grid" style="grid-template-columns: 1fr; max-width: 700px; margin: 0 auto;">
+      
+      <!-- Formulario de Agendamiento -->
+      <section class="card form-card">
+        <div class="card-header">
+          <h2><i class="fa-solid fa-clipboard-user"></i> Datos del Paciente / Cliente</h2>
+        </div>
+
+        <!-- Banner de Respuestas / Alertas -->
+        <div id="alertBox" class="alert-banner hidden">
+          <i id="alertIcon" class="fa-solid"></i>
+          <span id="alertMessage"></span>
+        </div>
+
+        <form id="appointmentForm">
+          
+          <div class="form-group">
+            <label for="clientName"><i class="fa-solid fa-user"></i> Nombre Completo</label>
+            <input type="text" id="clientName" placeholder="Ej. Cris Riascos" required>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="clientId"><i class="fa-solid fa-address-card"></i> Cédula / Identificación</label>
+              <input type="text" id="clientId" placeholder="106171" required>
+            </div>
+            <div class="form-group">
+              <label for="clientPhone"><i class="fa-solid fa-phone"></i> Teléfono Celular</label>
+              <input type="tel" id="clientPhone" placeholder="31707571" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="clientEmail"><i class="fa-solid fa-envelope"></i> Correo Electrónico</label>
+            <input type="email" id="clientEmail" placeholder="tu-correo@ejemplo.com" required>
+          </div>
+
+          <div class="form-group">
+            <label for="serviceType"><i class="fa-solid fa-notes-medical"></i> Servicio Requerido</label>
+            <select id="serviceType" required>
+              <option value="">-- Selecciona un servicio --</option>
+              <option value="Cardiología">Consulta de Cardiología</option>
+              <option value="Dentista">Atención Odontológica / Dentista</option>
+              <option value="Consultoría">Consultoría General</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="appointmentDate"><i class="fa-solid fa-calendar-days"></i> Fecha y Hora Preferida</label>
+            <input type="datetime-local" id="appointmentDate" required>
+          </div>
+
+          <button type="submit" class="btn-primary" id="btnSubmit">
+            <i class="fa-solid fa-check-circle"></i> Confirmar y Reservar Cita
+          </button>
+        </form>
+      </section>
+
+    </div>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
